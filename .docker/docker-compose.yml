@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend/.docker  # Yolu güncelledik
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  backend:
+    build:
+      context: ./backend/.docker  # Yolu güncelledik
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+
+  contracts:
+    build:
+      context: ./contracts/.docker  # Yolu güncelledik
+      dockerfile: Dockerfile
+
+  blockchain:
+    build:
+      context: ./blockchain/.docker  # Yolu güncelledik
+      dockerfile: Dockerfile
+    ports:
+      - "8545:8545"  # Eğer bir Ethereum node'u açıyorsanız

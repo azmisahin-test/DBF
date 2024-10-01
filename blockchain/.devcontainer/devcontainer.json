@@ -1,0 +1,14 @@
+{
+    "name": "Blockchain Development",
+    "dockerFile": ".docker/Dockerfile",  // Yol güncellendi
+    "context": "..",
+    "workspaceFolder": "/app/blockchain",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "stefan-kreuzer.web3-syntax",
+        "Solidity-Syntax-Highlighting"
+    ],
+    "postCreateCommand": "npm install"
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Backend Development",
+    "dockerFile": ".docker/Dockerfile",  // Yol güncellendi
+    "context": "..",
+    "workspaceFolder": "/app/backend",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode"
+    ],
+    "postCreateCommand": "npm install"
+}
