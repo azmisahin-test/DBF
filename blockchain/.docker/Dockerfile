@@ -1,7 +1,7 @@
 FROM node:14
 
 # Sadece package.json ve package-lock.json'ı kopyala
-COPY package.json package-lock.json .
+COPY package.json package-lock.json ./
 
 # Bağımlılıkları yükle
 RUN npm install

@@ -1,7 +1,10 @@
 FROM node:14
 
+# Global olarak Truffle'ı yükle
+RUN npm install -g truffle
+
 # Sadece package.json ve package-lock.json'ı kopyala
-COPY package.json package-lock.json .
+COPY package.json package-lock.json ./
 
 # Bağımlılıkları yükle
 RUN npm install

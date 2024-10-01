@@ -1,9 +1,10 @@
 {
-  "workspaceFolder": "/workspaces",
+  "name": "Blockchain",
   "dockerComposeFile": [
     "../.docker/docker-compose.yml"
   ],
   "service": "development",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "shutdownAction": "stopCompose",
   "customizations": {
     "vscode": {
@@ -11,5 +12,6 @@
         "ms-azuretools.vscode-docker"
       ]
     }
-  }
+  },
+  "remoteUser": "root"
 }
