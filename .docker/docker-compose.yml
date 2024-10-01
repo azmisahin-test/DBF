@@ -23,6 +23,19 @@ services:
     ports:
       - "5000:5000"
       
+  ganache:
+    image: trufflesuite/ganache-cli
+    ports:
+      - "8545:8545" # Ganache'ın sunduğu port
+    networks:
+      - blockchain-net
+    environment:
+      - GANACHE_SERVER_PORT=8545
+      - GANACHE_NETWORK_ID=5777 # Özel bir ağ kimliği
+      - GANACHE_SEED=seed-phrase # Varsayılan seed ifadesi (isteğe bağlı)
+    volumes:
+      - ganache-data:/data
+
   # contracts:
   #   build:
   #     context: ../contracts
@@ -37,3 +50,7 @@ services:
 
 volumes:
   data:
+  ganache-data:
+
+networks:
+  blockchain-net:
