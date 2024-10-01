@@ -1,28 +1,32 @@
 version: '3.8'
 
 services:
+
+  development:
+    image: mcr.microsoft.com/devcontainers/universal:2
+
   frontend:
     build:
-      context: ./frontend/.docker  # Yolu güncelledik
-      dockerfile: Dockerfile
+      context: ..
+      dockerfile: frontend/.docker/Dockerfile
     ports:
       - "3000:3000"
 
-  backend:
-    build:
-      context: ./backend/.docker  # Yolu güncelledik
-      dockerfile: Dockerfile
-    ports:
-      - "5000:5000"
+  # backend:
+  #   build:
+  #     context: ../  
+  #     dockerfile: backend/.docker/Dockerfile
+  #   ports:
+  #     - "5000:5000"
 
-  contracts:
-    build:
-      context: ./contracts/.docker  # Yolu güncelledik
-      dockerfile: Dockerfile
+  # contracts:
+  #   build:
+  #     context: ../
+  #     dockerfile: contracts/.docker/Dockerfile
 
-  blockchain:
-    build:
-      context: ./blockchain/.docker  # Yolu güncelledik
-      dockerfile: Dockerfile
-    ports:
-      - "8545:8545"  # Eğer bir Ethereum node'u açıyorsanız
+  # blockchain:
+  #   build:
+  #     context: ../
+  #     dockerfile: blockchain/.docker/Dockerfile
+  #   ports:
+  #     - "8545:8545"  # Eğer bir Ethereum node'u açıyorsanız
