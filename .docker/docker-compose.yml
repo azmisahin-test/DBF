@@ -37,7 +37,26 @@ services:
   contracts:
     build:
       context: ../contracts
-      dockerfile: .docker/Dockerfile     
+      dockerfile: .docker/Dockerfile
+
+  ipfs:
+    image: ipfs/go-ipfs
+    ports:
+      - "5001:5001" # API portu
+      - "8080:8080" # Web arayüzü portu
+    volumes:
+      - ipfs-data:/data/ipfs
+    entrypoint: >
+      sh -c "
+      ipfs init || true &&
+      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[
+        \"http://localhost:3000\",
+        \"http://127.0.0.1:5001\",
+        \"https://webui.ipfs.io\"]' &&
+      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '[
+        \"PUT\", \"POST\"]' &&
+      ipfs daemon
+      "
       
   # blockchain:
   #   build:
@@ -49,3 +68,4 @@ services:
 volumes:
   data:
   ganache-data:
+  ipfs-data:
