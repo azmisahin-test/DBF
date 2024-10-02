@@ -1,5 +1,5 @@
 {
-  "name": "Blockchain",
+  "name": "Blockchain DApp",
   "dockerComposeFile": [
     "../.docker/docker-compose.yml"
   ],

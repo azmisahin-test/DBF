@@ -1,9 +1,10 @@
-version: '3.8'
+version: '3'
 
 services:
-
   development:
     image: mcr.microsoft.com/devcontainers/universal:2
+    env_file:
+      - .env # Ortam değişkenlerini .env dosyasından yükle
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ../..:/workspaces:cached
@@ -15,6 +16,8 @@ services:
       dockerfile: .docker/Dockerfile
     ports:
       - "3000:3000"
+    env_file:
+      - .env # Ortam değişkenlerini .env dosyasından yükle
 
   backend:
     build:
@@ -22,48 +25,43 @@ services:
       dockerfile: .docker/Dockerfile
     ports:
       - "5000:5000"
+    env_file:
+      - .env # Ortam değişkenlerini .env dosyasından yükle
 
   ganache:
     image: trufflesuite/ganache-cli
     ports:
-      - "8545:8545" # Ganache'ın sunduğu port
-    environment:
-      - GANACHE_SERVER_PORT=8545
-      - GANACHE_NETWORK_ID=5777 # Özel bir ağ kimliği
-      - GANACHE_SEED=seed-phrase # Varsayılan seed ifadesi (isteğe bağlı)
+      - "8545:8545"
+    env_file:
+      - .env # Ortam değişkenlerini .env dosyasından yükle
     volumes:
       - ganache-data:/data
+
+  blockchain:
+    build:
+      context: ../blockchain
+      dockerfile: .docker/Dockerfile
+    ports:
+      - "6545:6545"
+    env_file:
+      - .env # Ortam değişkenlerini .env dosyasından yükle      
 
   contracts:
     build:
       context: ../contracts
       dockerfile: .docker/Dockerfile
+    env_file:
+      - .env # Ortam değişkenlerini .env dosyasından yükle
 
   ipfs:
     image: ipfs/go-ipfs
     ports:
-      - "5001:5001" # API portu
-      - "8080:8080" # Web arayüzü portu
+      - "5001:5001"
+      - "8080:8080"
     volumes:
       - ipfs-data:/data/ipfs
-    entrypoint: >
-      sh -c "
-      ipfs init || true &&
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '[
-        \"http://localhost:3000\",
-        \"http://127.0.0.1:5001\",
-        \"https://webui.ipfs.io\"]' &&
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '[
-        \"PUT\", \"POST\"]' &&
-      ipfs daemon
-      "
-      
-  # blockchain:
-  #   build:
-  #     context: ../blockchain
-  #     dockerfile: .docker/Dockerfile
-  #   ports:
-  #     - "8545:8545"
+    env_file:
+      - .env # Ortam değişkenlerini .env dosyasından yükle
 
 volumes:
   data:

@@ -1,4 +1,7 @@
-FROM node:14
+FROM node:16
+
+# Çalışma alanı
+WORKDIR /app
 
 # Sadece package.json ve package-lock.json'ı kopyala
 COPY package.json package-lock.json ./

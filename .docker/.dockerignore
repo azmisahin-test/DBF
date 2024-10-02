@@ -1,0 +1,14 @@
+# Geçici dosyalar
+*.tmp
+*.log
+
+# Versiyon kontrol dosyaları
+.git
+.gitignore
+
+# Node.js bağımlılıkları
+node_modules
+
+# İstediğiniz diğer dosyalar
+Dockerfile
+README.md

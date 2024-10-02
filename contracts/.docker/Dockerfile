@@ -1,10 +1,10 @@
 FROM node:16
 
-# Global olarak Truffle'ı yükle
-RUN npm install -g truffle
-
 # Çalışma dizinini ayarla
 WORKDIR /app
+
+# Global olarak Truffle'ı yükle
+RUN npm install -g truffle
 
 # Sadece package.json ve package-lock.json'ı kopyala
 COPY package.json package-lock.json ./

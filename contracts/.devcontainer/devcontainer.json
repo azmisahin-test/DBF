@@ -1,13 +1,7 @@
 {
     "name": "Contracts Development",
-    "dockerFile": ".docker/Dockerfile",  // Yol güncellendi
+    "dockerFile": "../.docker/Dockerfile",
     "context": "..",
-    "workspaceFolder": "/app/contracts",
-    "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-    },
-    "extensions": [
-        "NikitaKozlov.vscode-solidity"
-    ],
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
     "postCreateCommand": "npm install"
 }
