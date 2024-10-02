@@ -52,6 +52,9 @@ services:
       dockerfile: .docker/Dockerfile
     env_file:
       - .env
+    environment:
+      # ortam değişkenleri aktar
+      - WALLET_MNEMONIC=${WALLET_MNEMONIC}
 
   ipfs:
     image: ipfs/go-ipfs
