@@ -43,13 +43,8 @@
 
 // require('dotenv').config();
 
-const {
-  ETH_HOST,
-  ETH_PORT,
-  ETH_NETWORK_ID,
-  WALLET_MNEMONIC,
-  INFURA_PROJECT_ID,
-} = process.env;
+const { ETH_HOST, ETH_PORT, ETH_NETWORK_ID, ETH_GAS_LIMIT, ETH_GAS_PRICE } =
+  process.env;
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
@@ -74,8 +69,8 @@ module.exports = {
       host: ETH_HOST, // Localhost (default: none)
       port: ETH_PORT, // Standard Ethereum port (default: none)
       network_id: ETH_NETWORK_ID, // Any network (default: none)
-      gas: 8000000, // Gaz limitini artırabilirsiniz
-      gasPrice: 25000000000, // Gaz fiyatını da artırmayı deneyin
+      gas: ETH_GAS_LIMIT, // Gaz limitini artırabilirsiniz
+      gasPrice: ETH_GAS_PRICE, // Gaz fiyatını da artırmayı deneyin
     },
     //
     // An additional network, but with some advanced options…
