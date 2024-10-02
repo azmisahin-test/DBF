@@ -43,7 +43,13 @@
 
 // require('dotenv').config();
 
-const { ETH_HOST, ETH_PORT, ETH_NETWORK_ID, WALLET_MNEMONIC, INFURA_PROJECT_ID } = process.env;
+const {
+  ETH_HOST,
+  ETH_PORT,
+  ETH_NETWORK_ID,
+  WALLET_MNEMONIC,
+  INFURA_PROJECT_ID,
+} = process.env;
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
@@ -65,9 +71,11 @@ module.exports = {
     // options below to some value.
     //
     development: {
-      host: ETH_HOST,     // Localhost (default: none)
-      port: ETH_PORT,            // Standard Ethereum port (default: none)
-      network_id: ETH_NETWORK_ID,       // Any network (default: none)
+      host: ETH_HOST, // Localhost (default: none)
+      port: ETH_PORT, // Standard Ethereum port (default: none)
+      network_id: ETH_NETWORK_ID, // Any network (default: none)
+      gas: 8000000, // Gaz limitini artırabilirsiniz
+      gasPrice: 25000000000, // Gaz fiyatını da artırmayı deneyin
     },
     //
     // An additional network, but with some advanced options…
@@ -106,7 +114,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.21",      // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.21", // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
@@ -115,7 +123,7 @@ module.exports = {
       //  },
       //  evmVersion: "byzantium"
       // }
-    }
+    },
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:

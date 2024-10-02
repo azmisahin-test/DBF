@@ -1,7 +1,10 @@
 {
-    "name": "contracts",
-    "version": "1.0.0",
-    "dependencies": {
-        "truffle": "^5.4.0"
-    }
+  "name": "contracts",
+  "version": "1.0.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "truffle": "^5.11.5"
+  }
 }
