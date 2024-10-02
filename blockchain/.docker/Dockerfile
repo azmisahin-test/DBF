@@ -3,9 +3,6 @@ FROM node:16
 # Çalışma alanı
 WORKDIR /app
 
-# .env dosyasını kopyala
-COPY .docker/.env ./
-
 # Sadece package.json ve package-lock.json'ı kopyala
 COPY package.json package-lock.json ./ 
 
