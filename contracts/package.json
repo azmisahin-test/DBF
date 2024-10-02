@@ -3,8 +3,5 @@
     "version": "1.0.0",
     "dependencies": {
         "truffle": "^5.4.0"
-    },
-    "devDependencies": {
-        "hardhat": "^2.22.12"
     }
 }

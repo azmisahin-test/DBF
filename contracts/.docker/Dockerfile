@@ -1,7 +1,10 @@
-FROM node:14
+FROM node:16
 
 # Global olarak Truffle'ı yükle
 RUN npm install -g truffle
+
+# Çalışma dizinini ayarla
+WORKDIR /app
 
 # Sadece package.json ve package-lock.json'ı kopyala
 COPY package.json package-lock.json ./
@@ -12,5 +15,8 @@ RUN npm install
 # Tüm dosyaları kopyala
 COPY . .
 
-# Uygulamayı başlat
-CMD ["truffle", "migrate"]
+# Migrations dizinini çalıştır
+# CMD ["truffle", "migrate", "--network", "development"]
+
+# Konteynerin açık kalmasını sağla
+CMD ["tail", "-f", "/dev/null"]
