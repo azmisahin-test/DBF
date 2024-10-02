@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
-const SimpleNotes = artifacts.require("SimpleNotes");
+const SimpleNote = artifacts.require("SimpleNote");
 
 module.exports = function (deployer) {
-    deployer.deploy(SimpleNotes);
+    deployer.deploy(SimpleNote);
 };
