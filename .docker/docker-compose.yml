@@ -34,6 +34,7 @@ services:
       - "${DEV_ETH_PORT:-8545}:8545"
     env_file:
       - .env
+    command: --gasLimit ${ETH_GAS_LIMIT:-6721975}  # Gaz limitini çevresel değişkenden al      
     volumes:
       - ganache-data:/data
 

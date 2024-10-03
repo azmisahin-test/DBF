@@ -30,4 +30,10 @@ contract("SimpleNote", (accounts) => {
       );
     }
   });
+
+  it("should estimate gas for updateNote", async () => {
+    const gasEstimate = await simpleNote.updateNote.estimateGas("Test note");
+    console.log(`Gas estimate: ${gasEstimate}`);
+  });
+
 });
